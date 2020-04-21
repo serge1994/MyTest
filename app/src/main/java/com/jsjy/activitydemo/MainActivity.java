@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.jsjy.activitydemo.activity.ActivityFragmentCommunicationActivity;
+import com.jsjy.activitydemo.activity.ActivityServiceCommunicationActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, ActivityFragmentCommunicationActivity.class));
                 break;
             case R.id.btn_main_service:
+                startActivity(new Intent(this, ActivityServiceCommunicationActivity.class));
                 break;
         }
     }

@@ -17,6 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.ActivityFragmentCommunicationActivity" />
+        <activity android:name=".activity.ActivityServiceCommunicationActivity" />
+
+        <service android:name=".service.Service1" />
     </application>
 
 </manifest>
