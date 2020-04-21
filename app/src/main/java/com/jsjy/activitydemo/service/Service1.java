@@ -4,9 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
-import android.os.Looper;
 import android.util.Log;
-
 
 import androidx.annotation.Nullable;
 
@@ -23,7 +21,7 @@ public class Service1 extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d("Jeffrey", "service====onCreate===service线程" + Looper.getMainLooper().getThread().getName());
+        Log.d("Jeffrey", "service====onCreate===service线程" + Thread.currentThread().getName());
     }
 
     @Override

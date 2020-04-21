@@ -6,7 +6,6 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
-import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
@@ -44,7 +43,7 @@ public class ActivityServiceCommunicationActivity extends AppCompatActivity impl
         setContentView(R.layout.activity_service_communication);
         mData = findViewById(R.id.txt_data);
         mIntent = new Intent(this, Service1.class);
-        Log.d("Jeffrey", Looper.getMainLooper().getThread().getName());
+        Log.d("Jeffrey", Thread.currentThread().getName());
     }
 
     @Override
@@ -73,7 +72,7 @@ public class ActivityServiceCommunicationActivity extends AppCompatActivity impl
 
     @Override
     public void onServiceConnected(ComponentName name, IBinder service) {
-        Log.d("Jeffrey", "onServiceConnected线程" + Looper.getMainLooper().getThread().getName());
+        Log.d("Jeffrey", "onServiceConnected线程" + Thread.currentThread().getName());
         if (service instanceof Service1.MyBind) {
             ((Service1.MyBind) service).showMessage();
         }
@@ -81,6 +80,7 @@ public class ActivityServiceCommunicationActivity extends AppCompatActivity impl
             ((Service1.MyBind2) service).getMyService().setCallBack(new Service1.MyCallBack() {
                 @Override
                 public void onDataChange(int data) {
+                    Log.d("Jeffrey", "onDataChange线程" + Thread.currentThread().getName());
                     Message message = new Message();
                     message.obj = data;
                     mHandler.sendMessage(message);
@@ -91,6 +91,6 @@ public class ActivityServiceCommunicationActivity extends AppCompatActivity impl
 
     @Override
     public void onServiceDisconnected(ComponentName name) {
-
+        Log.d("Jeffrey", "onServiceDisconnected");
     }
 }
