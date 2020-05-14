@@ -3,6 +3,7 @@ package com.jsjy.activitydemo.activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.Toast;
@@ -41,6 +42,7 @@ public class ActivityFragmentCommunicationActivity extends AppCompatActivity imp
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_communication);
         mFrameLayout = findViewById(R.id.fm_fragment);
+        Log.d("============","onCreate");
     }
 
     @Override

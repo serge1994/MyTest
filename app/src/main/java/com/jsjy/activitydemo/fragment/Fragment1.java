@@ -2,6 +2,7 @@ package com.jsjy.activitydemo.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,12 @@ public class Fragment1 extends Fragment {
         if (context instanceof CommunicationInterface) {
             mCommunicationInterface = (CommunicationInterface) context;
         }
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        Log.d("============","onActivityCreated");
     }
 
     @Override
@@ -61,5 +68,11 @@ public class Fragment1 extends Fragment {
     public void onDetach() {
         super.onDetach();
         mCommunicationInterface = null;
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        Log.d("============","onHiddenChanged");
     }
 }
