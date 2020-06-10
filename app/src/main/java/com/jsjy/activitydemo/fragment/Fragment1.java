@@ -35,7 +35,13 @@ public class Fragment1 extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Log.d("============","onActivityCreated");
+        Log.d("============", "onActivityCreated");
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Log.d("============", "onViewCreated");
     }
 
     @Override
@@ -56,6 +62,7 @@ public class Fragment1 extends Fragment {
                 mCommunicationInterface.showMessage();
             }
         });
+        Log.d("============", "onCreateView");
         return view;
 
     }
@@ -73,6 +80,6 @@ public class Fragment1 extends Fragment {
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
-        Log.d("============","onHiddenChanged");
+        Log.d("============", "onHiddenChanged");
     }
 }
